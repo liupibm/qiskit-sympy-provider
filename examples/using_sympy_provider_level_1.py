@@ -50,7 +50,9 @@ qobj = compile([qc1, qc2], backend=statevector_backend)
 
 # Running the both backends on the same qobj
 statevector_job = statevector_backend.run(qobj)
-unitary_job = unitary_backend.run(qobj)
+
+qobj2 = compile([qc1, qc2], backend=unitary_backend)
+unitary_job = unitary_backend.run(qobj2)
 
 lapse = 0
 interval = 0.01
